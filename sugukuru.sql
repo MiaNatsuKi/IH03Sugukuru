@@ -10,4 +10,4 @@
 CREATE DATABASE ss_sugukuru CHARACTER SET utf8;
 
 -- ユーザ作成(権限付与)
-GRANT ALL PRIVILEGES ON javawebdb.* TO admin@localhost IDENTIFIED BY 'password' WITH GRANT OPTION;
+GRANT ALL PRIVILEGES ON ss_sugukuru.* TO admin@localhost IDENTIFIED BY 'password' WITH GRANT OPTION;
