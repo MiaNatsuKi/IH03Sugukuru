@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="IH03Sugukuru">
+		<class>entity.SsCategory</class>
+		<class>entity.SsClaim</class>
+		<class>entity.SsClaimsDetail</class>
+		<class>entity.SsClaimsDetailPK</class>
+		<class>entity.SsClient</class>
+		<class>entity.SsCommom</class>
+		<class>entity.SsCommomPK</class>
+		<class>entity.SsCredit</class>
+		<class>entity.SsCreditPK</class>
+		<class>entity.SsDeliveryGood</class>
+		<class>entity.SsDeliveryItem</class>
+		<class>entity.SsDeliveryItemPK</class>
+		<class>entity.SsDeliverySpecification</class>
+		<class>entity.SsDeliverySpecificationPK</class>
+		<class>entity.SsDiscount</class>
+		<class>entity.SsDiscountPK</class>
+		<class>entity.SsEarning</class>
+		<class>entity.SsEarningsDetail</class>
+		<class>entity.SsEmployee</class>
+		<class>entity.SsEstimateParticular</class>
+		<class>entity.SsEstimateParticularPK</class>
+		<class>entity.SsEstimation</class>
+		<class>entity.SsImage</class>
+		<class>entity.SsMember</class>
+		<class>entity.SsOrder</class>
+		<class>entity.SsOrderDetail</class>
+		<class>entity.SsOrderDetailPK</class>
+		<class>entity.SsPayment</class>
+		<class>entity.SsPrefecture</class>
+		<class>entity.SsProduct</class>
+		<class>entity.SsReturnProduct</class>
+		<class>entity.SsSample</class>
+		<class>entity.SsSamplePK</class>
+		<class>entity.SsShipment</class>
+	</persistence-unit>
+</persistence>
