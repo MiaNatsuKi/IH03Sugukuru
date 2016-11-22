@@ -1,5 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%
+	/* errorメッセージ */
+	String errorMsg = (String)request.getAttribute("error");
+	if(errorMsg == null){
+		errorMsg = "";
+	}
+	
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,7 +16,6 @@
 <title>Sugukuru</title>
 
 <link rel="stylesheet" type="text/css" href="css/login.css">
-<link rel="stylesheet" type="text/css" href="css/a_original.css">
 
 <script type="text/javascript">
 <!--
@@ -56,7 +64,7 @@
 				<input type="submit" class="button" title="Sign In" value="Sign In"></input>
 			</div>
 		</form>
-		<div class="form-footer"></div>
+		<div class="form-footer"><% out.println(errorMsg); %></div>
 	</div>
 </body>
 </html>

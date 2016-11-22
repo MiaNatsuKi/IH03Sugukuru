@@ -1,3 +1,4 @@
+
 /**
  * Author : I.Asakawa
  * Created date : 2016/11/08
@@ -13,6 +14,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class LoginServlet
@@ -20,41 +22,70 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public LoginServlet() {
-        super();
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public LoginServlet() {
+		super();
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		doGet(request, response);
-		
+
 		/* 文字化け対策 */
 		response.setContentType("text/html;charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
-		
+
+		/* jspString */
+		String strjsp = "";
+		String errorMsg= "";
+		boolean flg;
+
 		/* 値取得 */
 		String employee_code = request.getParameter("code");
 		String pass = request.getParameter("pass");
-		System.out.println(employee_code);
-		System.out.println(pass);
-		
+
+		/* sessionスタート */
+		HttpSession session = request.getSession(true);
+
 		/* ユーザの確認（DB接続） */
+		if (employee_code.equals("admin")) {
+			if (pass.equals("pass")) {
+				flg = true;
+			} else {
+				flg = false;
+			}
+		} else {
+			flg = false;
+		}
+		/* ユーザ確認 end */
+
+		if(flg){
+			strjsp = "index.jsp";
+			session.setAttribute("code", employee_code);
+		}else{
+			strjsp = "login.jsp";
+			errorMsg = "従業員コード・パスワードのいずれかが<br>間違っています";
+			request.setAttribute("error", errorMsg);
+		}
+		
 		
 		/* ページ遷移 */
-		request.setAttribute("name","test");
-		RequestDispatcher rd = request.getRequestDispatcher("./index.jsp");
+		RequestDispatcher rd = request.getRequestDispatcher("./" + strjsp);
 		rd.forward(request, response);
 	}
 
