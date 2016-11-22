@@ -1,0 +1,26 @@
+/* •¶Žšcenter */
+#center {
+	text-align: center;
+}
+
+/* tblcenter */
+#estimate_tbl_center {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#title{
+    border-width : 0px 0px 1px 4px;
+    border-style : solid ;
+    border-color : #b1b1b1;
+    padding-left : 3px;
+}
+
+
+/* createEstimate.jsp */
+#ce_main_area{
+	width: 300px;
+	height : 300px;;
+	margin-left: auto;
+	margin-right: auto;
+}
